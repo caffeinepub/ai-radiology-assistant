@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Design and build a modern, responsive web UI for “AI Radiology Assistant” using React.js and Tailwind CSS with a professional medical theme. Required pages: Home, Image Upload, Result, AI Explanation, Chatbot, and Report History.",
+  "architectural_notes": [
+    "Frontend stack: React.js",
+    "Styling: Tailwind CSS",
+    "UI theme direction: professional, modern medical aesthetic",
+    "App consists of multiple pages: Home, Image Upload, Result, AI Explanation, Chatbot, Report History"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal medical logo mark: abstract lung/x-ray grid icon in teal + charcoal on transparent background (ai-radiology-logo.dim_512x512.png)\n- Wide hero illustration: clean flat vector-style radiology scene (monitor with scan silhouette, clinician outline, subtle geometric background), light background, teal accents (radiology-hero.dim_1600x900.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-cohesive-professional-medical-visual-theme-for-the-ai-radiology-assistant-ui-and-apply-it-consistently-across-all-pages-color-palette-typography-scale-spacing-border-radii-shadows-and-component-styling-using-tailwind-css-avoid-blue-purple-use-a-clean-clinical-palette-e-g-white-off-white-slate-charcoal-text-teal-green-accents-with-strong-readability-and-accessible-contrast",
+      "title": "Create a cohesive professional medical visual theme for the “AI Radiology Assistant” UI and apply it consistently across all pages (color palette, typography scale, spacing, border radii, shadows, and component styling) using Tailwind CSS. Avoid blue/purple; use a clean clinical palette (e.g., white/off-white, slate/charcoal text, teal/green accents) with strong readability and accessible contrast.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-app-wide-navigation-and-routing-for-the-following-pages-home-image-upload-result-ai-explanation-chatbot-and-report-history-navigation-must-be-responsive-desktop-visible-nav-mobile-collapsible-menu",
+      "title": "Implement app-wide navigation and routing for the following pages: Home, Image Upload, Result, AI Explanation, Chatbot, and Report History. Navigation must be responsive (desktop: visible nav; mobile: collapsible menu).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-home-page-ui-for-ai-radiology-assistant-with-a-modern-responsive-layout-hero-section-app-name-short-tagline-primary-calls-to-action-to-start-an-upload-and-view-report-history-and-a-brief-how-it-works-section-describing-the-flow-upload-results-explanation-chat",
+      "title": "Build the Home page UI for “AI Radiology Assistant” with a modern responsive layout: hero section (app name + short tagline), primary calls-to-action to start an upload and view report history, and a brief “How it works” section describing the flow (Upload → Results → Explanation → Chat).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-image-upload-page-ui-for-radiology-image-submission-with-upload-dropzone-button-supported-formats-hint-optional-patient-study-metadata-fields-e-g-study-id-modality-notes-preview-area-and-a-primary-analyze-action-that-navigates-to-the-result-page-ui-flow-only-no-ai-integration-required",
+      "title": "Build the Image Upload page UI for radiology image submission with: upload dropzone/button, supported formats hint, optional patient/study metadata fields (e.g., Study ID, Modality, Notes), preview area, and a primary “Analyze” action that navigates to the Result page (UI flow only; no AI integration required).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-result-page-ui-to-display-ai-analysis-outputs-in-a-structured-medical-layout-summary-findings-confidence-severity-badges-key-measurements-list-and-a-section-for-the-annotated-image-preview-placeholder-if-not-available-include-actions-to-view-the-ai-explanation-page-and-to-start-a-chatbot-conversation-about-the-result",
+      "title": "Build the Result page UI to display AI analysis outputs in a structured medical layout: summary findings, confidence/severity badges, key measurements list, and a section for the annotated image preview (placeholder if not available). Include actions to view the AI Explanation page and to start a Chatbot conversation about the result.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-ai-explanation-page-ui-that-explains-the-reasoning-behind-the-result-using-sections-such-as-what-the-model-saw-why-this-conclusion-limitations-and-recommended-next-steps-static-mock-content-acceptable-provide-a-clear-way-to-return-to-the-result-page",
+      "title": "Build the AI Explanation page UI that explains the reasoning behind the result using sections such as: “What the model saw”, “Why this conclusion”, “Limitations”, and “Recommended next steps” (static/mock content acceptable). Provide a clear way to return to the Result page.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-chatbot-page-ui-for-user-q-a-with-conversation-thread-user-input-box-send-button-message-timestamps-optional-and-suggested-prompt-chips-e-g-explain-this-finding-differential-diagnosis-next-steps-use-mocked-responses-no-real-time-websocket-requirements",
+      "title": "Build the Chatbot page UI for user Q&A with: conversation thread, user input box, send button, message timestamps (optional), and suggested prompt chips (e.g., “Explain this finding”, “Differential diagnosis”, “Next steps”). Use mocked responses (no real-time/WebSocket requirements).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-report-history-page-ui-to-list-past-reports-with-filters-search-ui-only-date-modality-status-and-a-row-card-per-report-showing-key-summary-fields-selecting-a-report-navigates-to-a-detailed-view-using-the-existing-result-page-layout-pre-filled-with-mock-data",
+      "title": "Build the Report History page UI to list past reports with filters/search (UI only): date, modality, status, and a row/card per report showing key summary fields. Selecting a report navigates to a detailed view using the existing Result page layout (pre-filled with mock data).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-generated-static-image-assets-for-a-polished-medical-ui-logo-hero-illustration-and-render-them-in-the-ui-from-the-frontend-static-assets-directory",
+      "title": "Add required generated static image assets for a polished medical UI (logo/hero illustration) and render them in the UI from the frontend static assets directory.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create responsive Home page for AI Radiology Assistant (professional medical theme)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create Image Upload page for radiology image submission",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Create Result page to display AI analysis outputs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create AI Explanation page to explain findings and reasoning",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create Chatbot page for user Q&A",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create Report History page to list/view past reports",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "AI Radiology Assistant",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

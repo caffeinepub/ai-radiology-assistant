@@ -1,0 +1,18 @@
+{
+  "frontend/src/index.css": "Global styles with clinical medical theme using OKLCH colors (teal/green accents, off-white backgrounds, charcoal text) for both light and dark modes, plus custom utility classes for success/warning/info states.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with medical theme tokens (teal/green palette, custom shadows, Inter font family) and custom animations for the clinical UI design system.",
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup defining all 6 routes (Home, Upload, Result, Explanation, Chat, History) wrapped in AppShell layout.",
+  "frontend/src/components/AppShell.tsx": "Root layout wrapper component that renders TopNav, main content outlet, and Footer for consistent page structure across all routes.",
+  "frontend/src/components/TopNav.tsx": "Responsive navigation header with logo, desktop nav links, mobile hamburger menu, and active route highlighting using teal accent colors.",
+  "frontend/src/components/Footer.tsx": "Simple footer component displaying copyright notice with heart icon and caffeine.ai attribution link.",
+  "frontend/src/pages/HomePage.tsx": "Landing page with hero section (title, tagline, CTA buttons, hero image), \"How It Works\" 4-step workflow, and key features showcase using medical-themed cards.",
+  "frontend/src/pages/ImageUploadPage.tsx": "Image upload interface with drag-and-drop zone, file preview, optional study metadata form (Study ID, Modality, Notes), and Analyze button that navigates to results.",
+  "frontend/src/pages/ResultPage.tsx": "Results display page showing AI analysis findings with summary card, confidence badges, key measurements table, image preview, disclaimer, and action buttons to Explanation and Chat pages; includes proper null checks for TypeScript safety.",
+  "frontend/src/pages/AIExplanationPage.tsx": "Detailed explanation page with four sections (What Model Detected, Why This Conclusion, Limitations/Disclaimer, Recommended Next Steps) using medical-themed cards and cautious clinical language.",
+  "frontend/src/pages/ChatbotPage.tsx": "Interactive chat interface with message thread, user/assistant bubbles, typing indicator, suggested prompt chips, and send functionality for AI Q&A about results.",
+  "frontend/src/pages/ReportHistoryPage.tsx": "Report history list page with search and filter controls (modality, status), clickable report cards showing study details, and navigation to Result page with selected report data.",
+  "frontend/src/state/mockStudyState.ts": "Zustand store managing current study data (file, metadata, preview), processing state, and selected report from history for navigation between pages.",
+  "frontend/src/state/mockReports.ts": "Mock data array of 8 sample radiology reports with varied modalities, statuses, findings, and confidence scores for populating the history page.",
+  "frontend/src/hooks/useMockChat.ts": "Custom hook managing chat state with messages array, typing indicator, and mock AI responses with simulated delay for chatbot functionality.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for future React Query hooks (currently empty as no backend integration is needed for this UI-only implementation)."
+}

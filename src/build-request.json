@@ -1,0 +1,189 @@
+{
+  "kind": "build_request",
+  "title": "Modern responsive UI for AI Radiology Assistant (6-page medical web app)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a cohesive professional medical visual theme for the “AI Radiology Assistant” UI and apply it consistently across all pages (color palette, typography scale, spacing, border radii, shadows, and component styling) using Tailwind CSS. Avoid blue/purple; use a clean clinical palette (e.g., white/off-white, slate/charcoal text, teal/green accents) with strong readability and accessible contrast.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Design a modern responsive web UI for “AI Radiology Assistant”.",
+          "Use:\n- React.js\n- Tailwind CSS\n- Professional medical theme"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share a consistent header/footer (or persistent top navigation) and consistent typography/spacing rules.",
+        "Primary/secondary button styles, cards, form fields, badges, and alert styles are consistent across pages.",
+        "Meets basic accessibility: legible font sizes, visible focus states, and sufficient contrast for key UI elements."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement app-wide navigation and routing for the following pages: Home, Image Upload, Result, AI Explanation, Chatbot, and Report History. Navigation must be responsive (desktop: visible nav; mobile: collapsible menu).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Pages needed:\n- Home page\n- Image upload page\n- Result page\n- AI explanation page\n- Chatbot page\n- Report history page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can navigate to each of the 6 pages via the UI on both mobile and desktop layouts.",
+        "The current page is visually indicated in the navigation.",
+        "Routes render without runtime errors and have sensible empty states where applicable."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build the Home page UI for “AI Radiology Assistant” with a modern responsive layout: hero section (app name + short tagline), primary calls-to-action to start an upload and view report history, and a brief “How it works” section describing the flow (Upload → Results → Explanation → Chat).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Pages needed:\n- Home page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page is responsive and looks intentional on mobile and desktop.",
+        "Home page includes clear CTAs that navigate to Image Upload and Report History pages.",
+        "User-facing text is in English and uses a professional medical tone."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build the Image Upload page UI for radiology image submission with: upload dropzone/button, supported formats hint, optional patient/study metadata fields (e.g., Study ID, Modality, Notes), preview area, and a primary “Analyze” action that navigates to the Result page (UI flow only; no AI integration required).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Pages needed:\n- Image upload page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can select a file and see a preview/filename shown in the UI.",
+        "Form fields are responsive and include labels and helper text.",
+        "Clicking “Analyze” moves the user to the Result page with a clear loading/processing UI state (mocked)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build the Result page UI to display AI analysis outputs in a structured medical layout: summary findings, confidence/severity badges, key measurements list, and a section for the annotated image preview (placeholder if not available). Include actions to view the AI Explanation page and to start a Chatbot conversation about the result.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Pages needed:\n- Result page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Result page presents a clear hierarchy: headline summary, details, and supporting visuals.",
+        "Includes buttons/links to the AI Explanation page and Chatbot page.",
+        "Provides appropriate empty/loading states when no result data is present (mock data allowed)."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build the AI Explanation page UI that explains the reasoning behind the result using sections such as: “What the model saw”, “Why this conclusion”, “Limitations”, and “Recommended next steps” (static/mock content acceptable). Provide a clear way to return to the Result page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Pages needed:\n- AI explanation page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Explanation content is organized into readable sections with headings and callouts.",
+        "Includes navigation back to Result and onward to Chatbot.",
+        "All text is in English and uses cautious clinical language (e.g., includes a disclaimer/limitations section)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build the Chatbot page UI for user Q&A with: conversation thread, user input box, send button, message timestamps (optional), and suggested prompt chips (e.g., “Explain this finding”, “Differential diagnosis”, “Next steps”). Use mocked responses (no real-time/WebSocket requirements).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Pages needed:\n- Chatbot page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can type a message and see it appear in the thread; a mocked assistant response appears after a short delay.",
+        "Chat UI is responsive and maintains usability on small screens.",
+        "Includes suggested prompt chips and a clear empty state for a new conversation."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build the Report History page UI to list past reports with filters/search (UI only): date, modality, status, and a row/card per report showing key summary fields. Selecting a report navigates to a detailed view using the existing Result page layout (pre-filled with mock data).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Pages needed:\n- Report history page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "History page shows a list of mock reports with a clear visual hierarchy and responsive layout.",
+        "Includes at least one filter or search UI control (client-side, mock).",
+        "Clicking a report navigates to the Result page with corresponding mocked details shown."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add required generated static image assets for a polished medical UI (logo/hero illustration) and render them in the UI from the frontend static assets directory.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Design a modern responsive web UI for “AI Radiology Assistant”."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are placed under frontend/public/assets/generated and referenced directly by the frontend.",
+        "Home page uses the hero illustration; app header/nav uses the logo icon.",
+        "Images render correctly in production build (no backend image proxying)."
+      ]
+    }
+  ],
+  "constraints": [],
+  "nonGoals": [],
+  "imageRequirements": {
+    "required": [
+      "Minimal medical logo mark: abstract lung/x-ray grid icon in teal + charcoal on transparent background (ai-radiology-logo.dim_512x512.png)",
+      "Wide hero illustration: clean flat vector-style radiology scene (monitor with scan silhouette, clinician outline, subtle geometric background), light background, teal accents (radiology-hero.dim_1600x900.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

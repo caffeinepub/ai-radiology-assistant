@@ -1,0 +1,266 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "AI Radiology Assistant — Modern Responsive 6-Page Medical UI (Frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Define and apply a cohesive Tailwind-based clinical theme (teal/green accents, no blue/purple) with consistent typography, spacing, and component styling across the app.",
+      "acceptanceCriteria": [
+        "All pages share a consistent header/footer (or persistent top navigation) and consistent typography/spacing rules.",
+        "Primary/secondary button styles, cards, form fields, badges, and alert styles are consistent across pages.",
+        "Meets basic accessibility: legible font sizes, visible focus states, and sufficient contrast for key UI elements."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global Tailwind layers and CSS variables/tokens for a clean clinical palette (off-white backgrounds, slate/charcoal text, teal/green accents), consistent radii/shadows, and accessible focus states; ensure no blue/purple accents are introduced."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extension (if needed) to align with the clinical design tokens (typography scale, shadows, radii) and ensure consistent usage across components."
+        },
+        {
+          "path": "frontend/src/components/ui/README-theme.md",
+          "operation": "create",
+          "description": "Document the design system decisions (palette, typography, spacing, button/card/form/badge/alert patterns) to keep styling consistent; when using shadcn-ui components, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AppShell.tsx",
+          "operation": "create",
+          "description": "Create a shared layout wrapper that applies consistent page container spacing, background, typography defaults, and renders a persistent header/nav + footer; use shadcn-ui primitives where applicable for consistent styling (verify the component's usage instructions before implementing)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement responsive navigation and routing for Home, Image Upload, Result, AI Explanation, Chatbot, and Report History with active-route indication and mobile collapsible menu.",
+      "acceptanceCriteria": [
+        "User can navigate to each of the 6 pages via the UI on both mobile and desktop layouts.",
+        "The current page is visually indicated in the navigation.",
+        "Routes render without runtime errors and have sensible empty states where applicable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Add client-side routing for the 6 required pages and wrap routes with the shared AppShell layout; ensure routes render with safe empty states (mocked) and no runtime errors."
+        },
+        {
+          "path": "frontend/src/components/TopNav.tsx",
+          "operation": "create",
+          "description": "Implement a responsive top navigation (desktop visible links; mobile collapsible menu) with active route styling and logo placement; use shadcn-ui navigation/menu/button primitives where appropriate (verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page component and wire it to the Home route."
+        },
+        {
+          "path": "frontend/src/pages/ImageUploadPage.tsx",
+          "operation": "create",
+          "description": "Create the Image Upload page component and wire it to the Image Upload route."
+        },
+        {
+          "path": "frontend/src/pages/ResultPage.tsx",
+          "operation": "create",
+          "description": "Create the Result page component and wire it to the Result route."
+        },
+        {
+          "path": "frontend/src/pages/AIExplanationPage.tsx",
+          "operation": "create",
+          "description": "Create the AI Explanation page component and wire it to the AI Explanation route."
+        },
+        {
+          "path": "frontend/src/pages/ChatbotPage.tsx",
+          "operation": "create",
+          "description": "Create the Chatbot page component and wire it to the Chatbot route."
+        },
+        {
+          "path": "frontend/src/pages/ReportHistoryPage.tsx",
+          "operation": "create",
+          "description": "Create the Report History page component and wire it to the Report History route."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build a responsive Home page with hero (name + tagline), CTAs to upload and report history, and a “How it works” section describing the flow.",
+      "acceptanceCriteria": [
+        "Home page is responsive and looks intentional on mobile and desktop.",
+        "Home page includes clear CTAs that navigate to Image Upload and Report History pages.",
+        "User-facing text is in English and uses a professional medical tone."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Implement the Home layout: hero section (app name + professional tagline), primary CTAs to Image Upload and Report History, and a concise “How it works” section (Upload → Results → Explanation → Chat); use shadcn-ui Button/Card components for consistent CTAs and panels (verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/components/AppShell.tsx",
+          "operation": "modify",
+          "description": "Ensure shared layout provides consistent spacing and typography that supports the Home hero and “How it works” content; use shadcn-ui layout-friendly primitives where applicable (verify the component's usage instructions before implementing)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build an Image Upload page UI with file selection/dropzone, supported format hints, optional metadata fields, preview, and an Analyze action that navigates to Result with a mocked processing state.",
+      "acceptanceCriteria": [
+        "User can select a file and see a preview/filename shown in the UI.",
+        "Form fields are responsive and include labels and helper text.",
+        "Clicking “Analyze” moves the user to the Result page with a clear loading/processing UI state (mocked)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ImageUploadPage.tsx",
+          "operation": "modify",
+          "description": "Implement upload UI: dropzone/button, supported formats hint, optional metadata fields (Study ID, Modality, Notes), preview area (thumbnail when possible + filename), and Analyze action that transitions to Result with a mocked processing/loading state; use shadcn-ui Input/Textarea/Button/Card components for consistent form styling (verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/state/mockStudyState.ts",
+          "operation": "create",
+          "description": "Add lightweight client-side state helpers for storing selected file + metadata and a mocked processing flag to support the Upload→Result UI flow without any AI integration."
+        },
+        {
+          "path": "frontend/src/pages/ResultPage.tsx",
+          "operation": "modify",
+          "description": "Read the mocked processing/result state so that navigation from Analyze shows a clear processing UI then renders mocked result content when ready; use shadcn-ui Skeleton/Badge/Card patterns if available (verify the component's usage instructions before implementing)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build a Result page that displays structured medical output (summary, badges, measurements, annotated image placeholder) and provides actions to Explanation and Chatbot with empty/loading states.",
+      "acceptanceCriteria": [
+        "Result page presents a clear hierarchy: headline summary, details, and supporting visuals.",
+        "Includes buttons/links to the AI Explanation page and Chatbot page.",
+        "Provides appropriate empty/loading states when no result data is present (mock data allowed)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ResultPage.tsx",
+          "operation": "modify",
+          "description": "Implement the structured Result layout: headline summary findings, confidence/severity badges, key measurements list, and annotated image preview section (placeholder when absent), plus actions linking to AI Explanation and Chatbot; use shadcn-ui Card/Badge/Button components for consistent medical UI hierarchy (verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/state/mockReports.ts",
+          "operation": "create",
+          "description": "Provide mock report/result data (including measurements, confidence, severity, and optional annotated preview placeholder info) to support Result rendering and empty/loading states."
+        },
+        {
+          "path": "frontend/src/pages/ReportHistoryPage.tsx",
+          "operation": "modify",
+          "description": "Wire selecting a report to navigate to the Result view pre-filled with corresponding mock data (client-side only), matching the Result page layout expectations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build an AI Explanation page with sections (What the model saw, Why, Limitations, Next steps) and navigation back to Result and onward to Chatbot using cautious clinical language.",
+      "acceptanceCriteria": [
+        "Explanation content is organized into readable sections with headings and callouts.",
+        "Includes navigation back to Result and onward to Chatbot.",
+        "All text is in English and uses cautious clinical language (e.g., includes a disclaimer/limitations section)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AIExplanationPage.tsx",
+          "operation": "modify",
+          "description": "Implement readable explanation sections with headings and callouts (What the model saw, Why this conclusion, Limitations/disclaimer, Recommended next steps) using static/mock content; add clear navigation back to Result and onward to Chatbot; use shadcn-ui Card/Alert components if available (verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/pages/ResultPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the Result page includes a clear action to navigate to AI Explanation, consistent with the app’s button/link styling; use shadcn-ui Button components where applicable (verify the component's usage instructions before implementing)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build a responsive Chatbot page UI with conversation thread, input + send, optional timestamps, suggested prompt chips, and mocked assistant responses after a short delay.",
+      "acceptanceCriteria": [
+        "User can type a message and see it appear in the thread; a mocked assistant response appears after a short delay.",
+        "Chat UI is responsive and maintains usability on small screens.",
+        "Includes suggested prompt chips and a clear empty state for a new conversation."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ChatbotPage.tsx",
+          "operation": "modify",
+          "description": "Implement chat UI: scrollable thread, message bubbles, input box + send button, optional timestamps, suggested prompt chips, and empty state for new conversation; use shadcn-ui Input/Button/Badge (chips) and Card components as appropriate (verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/hooks/useMockChat.ts",
+          "operation": "create",
+          "description": "Add a small hook to manage local conversation state and simulate assistant responses with a short delay (no real-time requirements)."
+        },
+        {
+          "path": "frontend/src/pages/ResultPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the Result page includes a clear action to start Chatbot conversation about the current result (navigates to Chatbot and can optionally seed a suggested prompt in client state)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build a Report History page listing mock reports with client-side filters/search and navigation to Result pre-filled with the selected report’s mocked details.",
+      "acceptanceCriteria": [
+        "History page shows a list of mock reports with a clear visual hierarchy and responsive layout.",
+        "Includes at least one filter or search UI control (client-side, mock).",
+        "Clicking a report navigates to the Result page with corresponding mocked details shown."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ReportHistoryPage.tsx",
+          "operation": "modify",
+          "description": "Implement responsive list/table of mock reports with strong hierarchy (status, date, modality, summary snippet) plus at least one client-side filter/search control; selecting a report navigates to Result with matching mocked details; use shadcn-ui Input/Select/Button/Card components where applicable (verify the component's usage instructions before implementing)."
+        },
+        {
+          "path": "frontend/src/state/mockReports.ts",
+          "operation": "modify",
+          "description": "Expand mock reports dataset to support filtering/search (date/modality/status) and provide details needed to populate the Result page consistently."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure routing supports navigating from Report History to Result while preserving/reporting selected mock report context (client-side only) and shows sensible empty states when no report is selected."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add required generated static images (logo + hero illustration) under the public generated assets directory and render them in the UI (logo in header/nav, hero on Home) without backend involvement.",
+      "acceptanceCriteria": [
+        "Generated images are placed under frontend/public/assets/generated and referenced directly by the frontend.",
+        "Home page uses the hero illustration; app header/nav uses the logo icon.",
+        "Images render correctly in production build (no backend image proxying)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/ai-radiology-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated logo asset at the exact required path so the header/nav can reference it as a static public file."
+        },
+        {
+          "path": "frontend/public/assets/generated/radiology-hero.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated hero illustration asset at the exact required path so the Home page can reference it as a static public file."
+        },
+        {
+          "path": "frontend/src/components/TopNav.tsx",
+          "operation": "modify",
+          "description": "Render the logo image from frontend/public/assets/generated/ai-radiology-logo.dim_512x512.png within the persistent navigation, ensuring appropriate sizing and accessible alt text."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Render the hero illustration from frontend/public/assets/generated/radiology-hero.dim_1600x900.png in the Home hero section (responsive), alongside the headline/tagline and CTAs."
+        }
+      ]
+    }
+  ]
+}
